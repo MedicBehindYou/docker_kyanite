@@ -24,4 +24,4 @@ RUN pip install -U numpy scipy matplotlib pandas seaborn --break-system-packages
 
 COPY . /app
 
-ENTRYPOINT ["python3", "/app/script.py"]
+ENTRYPOINT ["./kyanite"]
