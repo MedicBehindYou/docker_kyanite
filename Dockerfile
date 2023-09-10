@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN cargo install kyanite
 
-FROM debian:bullseye-slim
+FROM debian:latest
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -18,9 +18,9 @@ COPY --from=builder /usr/local/cargo/bin/kyanite /app/kyanite
 
 WORKDIR /app
 
-RUN pip install -U pip
+RUN pip install -U pip --break-system-packages
 
-RUN pip install -U numpy scipy matplotlib pandas seaborn 
+RUN pip install -U numpy scipy matplotlib pandas seaborn --break-system-packages
 
 COPY . /app
 
